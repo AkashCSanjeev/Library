@@ -19,6 +19,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<userProvider>(context, listen: false).user;
+    List month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
     if (user.history!.isEmpty) {
       return const Scaffold(
@@ -34,6 +35,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
           padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
           child: ListView.separated(
               itemBuilder: (context, index) {
+                List dueDate = user.history![index].dueDate!.split("/");
+                List issueDate = user.history![index].issuedDate!.split("T")[0].split('-');
                 return Container(
                   color: user.history![index].status! == "returned"
                       ? GlobalVariable.grey
@@ -47,9 +50,22 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       style: const TextStyle(fontWeight: FontWeight.w900),
                     ),
                     subtitle: Text(user.history![index].author!),
-                    trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.navigate_next),
+                    trailing: Container(
+                      width: 60,
+                      color: GlobalVariable.dark,
+                      padding: const EdgeInsets.only(right: 20,left:20,),
+                      child: Column(
+                        children: [
+                          if(user.history![index].status! == "returned" ) ...[
+                              Text(issueDate[2],style: TextStyle(fontWeight: FontWeight.bold,color: GlobalVariable.whiteRep),),
+                              Text(month[int.parse(issueDate[1])],style: TextStyle(fontWeight: FontWeight.bold,color: GlobalVariable.whiteRep)),
+                            
+                          ] else ...[
+                              Text(dueDate[0],style: TextStyle(fontWeight: FontWeight.bold,color: GlobalVariable.whiteRep),),
+                              Text(month[int.parse(dueDate[1])],style: TextStyle(fontWeight: FontWeight.bold,color: GlobalVariable.whiteRep)),
+                          ]
+                        ],
+                      ),
                     ),
                     children: [
                       Container(

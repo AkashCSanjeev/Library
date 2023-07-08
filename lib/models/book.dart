@@ -11,6 +11,7 @@ class Book {
   String? updatedAt;
   String? status;
   String? issuedDate;
+  String? dueDate;
   String? isDue;
   int? iV;
 
@@ -25,6 +26,7 @@ class Book {
       this.updatedAt,
       this.status,
       this.issuedDate,
+      this.dueDate,
       this.isDue,
       this.iV});
 
@@ -38,6 +40,7 @@ class Book {
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
     issuedDate = json['issueDate'];
+    dueDate = json['dueDate'];
     status = json['status'];
     isDue = json['isDue'];
     iV = json['__v'];
@@ -55,6 +58,7 @@ class Book {
     data['updatedAt'] = updatedAt;
     data['status'] = status;
     data['issueDate'] = issuedDate;
+    data['dueDate'] = dueDate;
     data['isDue'] = isDue;
     data['__v'] = iV;
     return jsonEncode(data);

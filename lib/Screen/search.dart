@@ -69,6 +69,15 @@ class _SearchState extends State<Search> {
                             color: GlobalVariable.whiteRep,
                             fontWeight: FontWeight.w100),
                       ),
+                      trailing: Container(
+                      width: 60,
+                      color: GlobalVariable.dark,
+                      padding: const EdgeInsets.only(right: 20,left:20,),
+                      child:  searchService.suggestions[index].quantity! > 0 
+                      ? Text("Av",style: TextStyle(fontWeight: FontWeight.bold,color: GlobalVariable.whiteRep),)
+                      : Text("Na",style: TextStyle(fontWeight: FontWeight.bold,color: GlobalVariable.whiteRep),),
+                      
+                    ),
                     );
                   },
                   separatorBuilder: (context, index) {

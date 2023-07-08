@@ -61,6 +61,8 @@ class ScannerService {
     );
 
     if (jsonDecode(lendResponse.body)['msg'] == "Book issued") {
+      scannedBook!.dueDate = jsonDecode(lendResponse.body)['dueDate'];
+      scannedBook!.issuedDate = jsonDecode(lendResponse.body)['issueDate'];
       user.history!.insert(0, scannedBook!);
     }
     if (!context.mounted) {

@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'Screen/auth_screen.dart';
 
 // Username : akash@codehomies.com    password:123456
+// Username : akashcsanjeev@gmail.com   password:123456
 
 void main() {
   runApp(MultiProvider(
