@@ -14,18 +14,22 @@ void httpErrorHandle(
       onSuccess();
       break;
     case 400:
+      hideLoader(context);
       showSnackbar(context, jsonDecode(response.body)['msg']);
       log(response.body);
       break;
     case 401:
+      hideLoader(context);
       showSnackbar(context, jsonDecode(response.body)['msg']);
       log(response.body);
       break;
     case 400:
+      hideLoader(context);
       showSnackbar(context, jsonDecode(response.body)['error']);
       log(response.body);
       break;
     default:
+      hideLoader(context);
       showSnackbar(context, response.body);
       log(response.body);
       break;

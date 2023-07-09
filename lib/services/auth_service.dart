@@ -15,6 +15,8 @@ import '../provider/user_provider.dart';
 import '../utils.dart';
 
 class AuthService {
+
+
 // SignIn User
   void signInUser(
       {required BuildContext context,
