@@ -36,12 +36,20 @@ class ScannerService {
             "${GlobalVariable.URL}${GlobalVariable.booksPORT}/books/api/v1/book/$result"),
       );
       response = bookResponse.body;
-      scannedBook = Book.fromJson(jsonDecode(bookResponse.body)["book"]);
+      print(response);
+      if(jsonDecode(bookResponse.body)["book"] != null){
+        scannedBook = Book.fromJson(jsonDecode(bookResponse.body)["book"]);
       scannedBook!.isDue = "false";
       scannedBook!.status = "issued";
+      }else{
+        result = "-1";
+        showSnackbar(context, "Retry");
+      }
+      
       hideLoader(context);
     } else {
       response = "-1";
+      showSnackbar(context, "Retry");
     }
     func();
   }

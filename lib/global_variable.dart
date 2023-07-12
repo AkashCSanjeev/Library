@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GlobalVariable {
+
   // ignore: non_constant_identifier_names
   static String URL = "http://192.168.1.4:";
   static String booksPORT = "5000";

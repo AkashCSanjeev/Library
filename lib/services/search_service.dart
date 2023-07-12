@@ -42,7 +42,7 @@ class SearchService {
 
     if (suggestions.isEmpty) {
       suggestions
-          .add(Book(title: "No Book found", description: "", author: ""));
+          .add(Book(title: "No Book found", description: "", author: "",quantity: 0));
     }
 
     func();
